@@ -1,3 +1,4 @@
+* {box-sizing: border-box;}
 *{
     margin: 0px;
     padding: 0px;
@@ -19,7 +20,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("/engin-akyurt-A9_IsUtjHm4-unsplash.jpeg");
+    background-image: url("/cloud.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
@@ -37,6 +38,7 @@ body{
 }
 .selectArea{
     position: relative;
+    margin-top: 20px;
 }
 .selectCity{
     margin-top: 20px;
@@ -83,6 +85,33 @@ body{
     display: flex;
     justify-content: end;
     margin: 20px 10px 10px;
+}
+.searchBar{
+    width: 100%;
+    /* padding: .5rem; */
+    height: auto;
+    position: relative;
+
+}
+.search{
+    font-size: 1rem;
+    padding: .5rem;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem 0 0 0.25rem;
+
+
+}
+.searchBtn{
+    padding: .5rem;
+    border: 1px solid #ced4da;
+    border-radius: 0 0.25rem 0.25rem 0 ;
+    height: 36.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+
 }
 
 .cardArea{
