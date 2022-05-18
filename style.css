@@ -1,0 +1,200 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-family: Microsoft JhengHei;
+    background-color: rgba(233, 232, 232, 0.303);
+    color: rgb(69, 69, 69);
+}
+.wrapper{
+    width: 1024px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.title{
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/engin-akyurt-A9_IsUtjHm4-unsplash.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
+}
+.title>p{
+    font-size: 1.5rem;
+}
+.main{
+    display: flex;
+}
+.selection{
+    width: 20%;
+    margin: 104px 0 0 10px;
+}
+.selectArea{
+    position: relative;
+}
+.selectCity{
+    margin-top: 20px;
+    position: relative;
+}
+.selector{
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding:0.5rem; 
+    font-size: 1rem;
+}
+.dropdown{
+    background-color:rgb(240, 240, 240) ;
+    width: 90%;
+    padding: 10px; 
+    position: absolute;
+    top: 40px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.dropdown>ul>li{
+    list-style: none;
+    margin-top: 5px;
+}
+.dropdown>ul>li:hover{
+    background-color: rgb(35, 117, 218);
+    color: white;
+}
+.hide{
+    display:none;
+}
+.rated>p{
+    margin:20px 0 10px;
+}
+.cardwrap{
+    width: 80%;
+    margin: 0 0 0 20px ;
+   
+}
+.btn-group{
+    display: flex;
+    justify-content: end;
+    margin: 20px 10px 10px;
+}
+
+.cardArea{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    padding:0 0 20px;
+    /* background-color: antiquewhite; */
+}
+.card{
+    border: 1px solid rgb(205, 205, 205);
+    background-color: white;
+    box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.3);
+    margin: 10px;
+    width:22%;
+    position: relative;
+
+
+
+}
+.card-top{
+    padding: 10px;
+
+
+}
+.area{
+    font-size: 1.25rem;
+}
+.area>span,.area>a{
+    font-size: 1rem;
+}
+.float-right{
+    float: right;
+}
+.card-body{
+    display: flex;
+    margin: 20px 0;
+    text-align: center;
+}
+.text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+}
+.text2{
+    width: 100%;
+    padding: 0 10px;
+    /* margin: auto; */
+}
+.status-circle{
+    margin: 0 auto 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+}
+.text>p{
+    display: block;
+}
+.air-status{
+    width: 100%;
+}
+/* .status-circle{
+    margin: 0 20px;
+    border-radius:50% ;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(215, 213, 186);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.bold{
+    font-weight: bold;
+}
+.p-larger{
+    font-size: 1.25rem;
+}
+
+.aqi1{
+    background-color: #bfe4cb;
+  }
+  .aqi2 {
+    background-color: #eeeebb;
+  }
+   .aqi3 {
+    background-color: #f5c18d;
+   }
+   .aqi4 {
+    background-color: #f99b9b;
+   }
+    .aqi5 {
+    background-color: #f298fa;
+   }
+   .aqi6 {
+    background-color: #fc6c95;
+   }
+
+   /* button */
+   .button-38 {
+    margin: 10px;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+  }
+  
+  .button-38:hover {
+    background-color: rgb(249, 250, 251);
+  }

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <div class="title">
+                <p>城市空氣品質</p>  
+            </div>
+            <div class="main">
+                <div class="selection">
+                    <div class="selectArea">
+                        <div class="selector" @click="this.firstToggle=!this.firstToggle">
+                            {{checkArea}}
+                        </div>
+                        <div class="dropdown" :class="{hide:firstToggle == false}">
+                            <ul>
+                                <li v-for="(item) in allarea"  @click="selectArea(item)">{{item}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="selectCity">
+                        <div class="selector" @click="this.secToggle=!this.secToggle">
+                            {{checkCity}}
+                        </div>
+                        <div class="dropdown" :class="{hide:secToggle == false}">
+                            <ul>
+                                <li v-for="item in cities" @click="selectCity(item)">{{item}}</li>
+            
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rated">
+                        <p>空污城鎮</p>
+                        <div v-if="warning.length>0">
+                            <ul>
+                                <li v-for="item in warning">{{item.County}}--{{item.SiteName}}</li>
+                            </ul>
+                        </div>
+                        <div v-else>
+                           <p>此時段無空污城鎮</p>
+                        </div>
+                        
+
+
+                    </div>
+
+
+                    
+
+                </div>
+                <div class="cardwrap">
+                    <div class="image-area">
+
+                    </div>
+                    <div class="btn-group">
+                        <!-- <button
+                        type="button"
+                        class="button-38"
+                        role="button"
+                        @click="area = '北部'"
+                      >
+                        北部
+                      </button> -->
+                      <!-- <button
+                      type="button"
+                      class="button-38"
+                      role="button"
+                      @click="area = '中部'"
+                    >
+                      中部
+                    </button> -->
+                    <!-- <button
+                    type="button"
+                    class="button-38"
+                    role="button"
+                    @click="area = '南部'"
+                  >
+                    南部
+                  </button> -->
+                  <!-- <button
+                  type="button"
+                  class="button-38"
+                  role="button"
+                  @click="area = '東部'"
+                >
+                  東部
+                </button> -->
+                
+                <button
+                type="button"
+                class="button-38"
+                role="button"
+                @click="this.staredArea=!this.staredArea"
+              >
+              關注城鎮
+              <i class="fa-solid fa-arrows-rotate"></i>
+              </button>
+                        
+                    </div>
+
+                    
+                <div :class="{hide:staredArea == false}">
+                <div style="margin:0 10px; padding-top: 10px;" >關注城鎮</div>
+                <div class="cardArea" style="border-bottom:1px dashed rgb(160, 160, 160) ;">
+                   
+                    <card
+                    v-for="(item,key) in staredData"
+                    @set-focus=switchCard
+                    :selectinfo="item"
+                    :star="stared"
+                    :key="key"
+                    >
+                    </card>
+                </div>
+                </div>   
+                <div class="cardArea">
+                    <card
+                    v-for="(item,key) in filterData"
+                    @set-focus=switchCard
+                    :selectinfo="item"
+                    :star="stared"
+                    :key="key"
+                    >
+                    </card>
+
+                </div>
+
+
+            
+               
+            </div>  
+
+            </div>
+            <div></div>
+
+    
+            
+        </div>
+
+
+
+    </div>
+
+    <script type="text/x-template" id='card'>
+        <div class="card">
+            <div class="card-top" >
+                <div class="area" >
+                    {{selectinfo.County}} - <span>{{selectinfo.SiteName}}</span>
+                     <a href="#" class="float-right" @click.prevent=setIcon()>
+                         <i :class="markIcon"></i>
+                        <!-- <i class="fa-regular fa-bookmark"></i> -->
+                        <!-- <i class="fa-solid fa-bookmark"></i> -->
+        
+                 
+     
+                     </a>
+                </div>
+                
+            </div>
+            <div class="card-body">
+                <div class="text">
+                    <div>AQI指數</div>
+                    <div class="bold p-larger">{{selectinfo.AQI}}</div>
+                    <div>PM2.5</div>
+                    <div class="bold p-larger">{{selectinfo['PM2.5']}}</div>
+    
+                </div>
+                <div class="text2">
+                    <div class="status-circle" :class="statusCheck"></div>
+                    <div class="">
+                         <div>空氣品質</div>
+                    <div class="bold">{{selectinfo.Status}}</div>
+                    </div>
+                   
+    
+                </div>
+            </div>
+            <!-- <div class="card-bottom">{{selectinfo.PublishTime}}</div> -->
+            </div>
+
+   </script> 
+     
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="javascript/app.js" type="module"></script>
+</body>
+</html>
