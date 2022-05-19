@@ -5,6 +5,7 @@ const app =createApp({
       return {
           data:[],
           //所有城市
+          showdata:[],
           allcites:[],
           //資料中所有的城鎮
           counties:[],
@@ -13,12 +14,14 @@ const app =createApp({
           //Status顯示危害的城市
           warning:[],
           stared:JSON.parse(localStorage.getItem('stared')) ||  [],
-          staredArea:true,
+          staredArea:false,
           myStared:[],
+          input:"",
+          search:"",
           allarea:["全區","北部","中部","南部","東部","離島"],
           cities:[],
           northCity:["基隆市","新北市","臺北市","桃園市","新竹市","新竹縣","宜蘭縣"],
-          midCity:["苗栗縣","臺中市","彰化縣","南投線","雲林縣",],
+          midCity:["苗栗縣","臺中市","彰化縣","南投縣","雲林縣",],
           southCity:["嘉義市","臺南市","高雄市","屏東縣"],
           eastCity:["花蓮縣","臺東縣",],
           otherCity:["金門縣","連江縣","澎湖縣"],
@@ -36,6 +39,7 @@ const app =createApp({
         const api = 'https://script.google.com/macros/s/AKfycbzl6KKgb4v2-F3SCVxVaXjnMwM_XQvnk2A08nw7NjmGfuRVmak0/exec?url=http://opendata2.epa.gov.tw/AQI.json';
         axios.get(api).then((res)=>{
             vm.data=res.data
+            vm.showdata=JSON.parse(JSON.stringify(vm.data))
             vm.data.forEach((item)=>{
                 vm.counties.push(item.County)
                 //先把所有county都抓出來
@@ -45,12 +49,11 @@ const app =createApp({
                 return arr.indexOf(item) === key
                //過濾重複的縣市
             })
-            //顯示危害的城鎮
-            vm.data.forEach((item)=>{
-                if(item.Status == '危害'){
-                    vm.warning.push(item)
-                }
+            vm.warning=vm.data.sort(function(a,b){
+                return b.AQI - a.AQI
             })
+      
+            console.log( vm.data)
             //取出關注資料
             vm.data.forEach((item1)=>{
                 vm.stared.forEach((item2)=>{
@@ -59,7 +62,6 @@ const app =createApp({
                     }
                 })
             })
-            console.log( vm.myStared)
 
         }) 
       },
@@ -72,7 +74,7 @@ const app =createApp({
        const expr = this.checkArea
        switch(expr){
             case "全區":
-                this.checkCity="--請選擇城市--"
+                this.showdata=JSON.parse(JSON.stringify(this.data))
                 this.cities=this.county
             break;
            case "北部":
@@ -95,6 +97,15 @@ const app =createApp({
    
 
       },
+      selectCity(city){
+        this.checkCity=city
+        this.secToggle=false
+        let selectCity=this.data.filter(item=>{  
+            return  item.County === this.checkCity
+           });
+           this.showdata=selectCity
+
+    },
     switchCard(countydata){
         const vm=this;
         vm.stared=JSON.parse(localStorage.getItem('stared')) ||  []
@@ -115,25 +126,23 @@ const app =createApp({
         vm.stared=JSON.parse(localStorage.getItem('stared')) ||  []
     },
 
-      selectCity(city){
-          this.checkCity=city
-          this.secToggle=false
+   
+      //TODO
+      searchCities(){
+          this.search=this.input
+          this.input=""
+        let re=this.search
+          let mysearch = this.data.filter(function(item){
+              return item.County.match(re)
+          })
+          this.showdata=mysearch
           
-
       }
       
   },
   computed:{
      
-      filterData(){
-          if(this.checkCity=="--請選擇城市--"){
-            return this.data
-          }else{
-            return this.data.filter(item=>{  
-             return  item.County == this.checkCity
-            });
-          }
-      },
+
 //TODO
       staredData(){
           let vm=this

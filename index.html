@@ -17,8 +17,8 @@
             <div class="main">
                 <div class="selection">
                     <div class="searchBar">
-                        <input class="search" type="text" placeholder="輸入鄉鎮名稱">
-                        <button class="searchBtn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input class="search" type="text" placeholder="輸入城市名稱" v-model="input">
+                        <button class="searchBtn" type="button" @click="searchCities"><i class="fa-solid fa-magnifying-glass"></i></button>
     
                     </div> 
                     <div class="selectArea">
@@ -43,18 +43,17 @@
                         </div>
                     </div>
                     <div class="rated">
-                        <p>空污城鎮</p>
-                        <div v-if="warning.length>0">
+                        <div class="rated-top">
+                            <p >AQI指數排行 </p>
+                            <button class="sortbtn">高至低<i class="fa-solid fa-arrow-trend-down"></i></button>
+                        </div>
+                     
+                        
+                        <div style="padding-top: 10px;">
                             <ul>
-                                <li v-for="item in warning">{{item.County}}--{{item.SiteName}}</li>
+                                <li style="list-style: none; padding-bottom: 10px;" v-for="item in warning">{{item.County}}--{{item.SiteName}}</li>
                             </ul>
                         </div>
-                        <div v-else>
-                           <p>此時段無空污城鎮</p>
-                        </div>
-                        
-
-
                     </div>
 
 
@@ -129,7 +128,7 @@
                 </div>   
                 <div class="cardArea">
                     <card
-                    v-for="(item,key) in filterData"
+                    v-for="(item,key) in showdata"
                     @set-focus=switchCard
                     :selectinfo="item"
                     :star="stared"
@@ -194,7 +193,7 @@
 
    </script> 
      
-    
+   
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="javascript/app.js" type="module"></script>
 </body>

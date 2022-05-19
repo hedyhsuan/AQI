@@ -73,8 +73,19 @@ body{
 .hide{
     display:none;
 }
-.rated>p{
-    margin:20px 0 10px;
+.rated-top{
+    padding:20px 0 10px;
+    border-bottom:1px solid #ced4da;
+    display: flex;
+}
+.rated-top>P{
+    width: 120px;
+}
+.sortbtn{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 60%;
+    
 }
 .cardwrap{
     width: 80%;
