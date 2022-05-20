@@ -83,7 +83,8 @@ body{
 }
 .aqiShow{
     margin-top: 20px;
-    color: rgb(56, 73, 199);
+    color: rgb(56, 73, 199)
+    ;
 
 }
 .sortbtn{
@@ -155,10 +156,12 @@ body{
     margin: 10px;
     width:22%;
     position: relative;
-
-
-
 }
+@media (max-width: 576px) { 
+    .card{
+        width:45%;
+    }
+  }
 .card-top{
     padding: 10px;
 
