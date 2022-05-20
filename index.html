@@ -55,7 +55,7 @@
                                     {{item.County}}-{{item.SiteName}}  <span style="font-size: .75rem;">AQI指數:{{item.AQI}}</span></li>
                             </ul>
                           
-                            <div class="aqiShow" @click.prevent=aqiShow>
+                            <div class="aqiShow" @click=aqiShow>
                                 <i class="fa-solid fa-arrow-down"></i>
                                 {{aqiShowbtn}}</div>
                         </div>
@@ -140,7 +140,7 @@
                     :key="key"
                     >
                     </card>
-                    <div class="loadmore"><i class="fa-solid fa-arrow-down"></i>載入更多</div>
+                    <div class="loadmore" @click="dataShow" ><i class="fa-solid fa-arrow-down"></i>{{dataShowbtn}}</div>
 
                 </div>
 

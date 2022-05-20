@@ -83,8 +83,8 @@ body{
 }
 .aqiShow{
     margin-top: 20px;
-    color: rgb(56, 73, 199)
-    ;
+    color: rgb(56, 73, 199);
+    cursor: pointer;
 
 }
 .sortbtn{
@@ -147,6 +147,7 @@ body{
     position: absolute;
     right: 70px;
     bottom: 20px;
+    cursor: pointer;
     color: rgb(56, 73, 199);
 }
 .card{

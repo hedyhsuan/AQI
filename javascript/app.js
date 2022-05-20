@@ -8,6 +8,7 @@ const app =createApp({
           showdata:[],
           //是否顯示所有資料
           showAll:false,
+          dataShowbtn:"載入更多",
           allcites:[],
           //資料中所有的城鎮
           counties:[],
@@ -56,9 +57,6 @@ const app =createApp({
                 return arr.indexOf(item) === key
                //過濾重複的縣市
             })
-
-      
-            console.log( vm.data)
             //取出關注資料
             vm.data.forEach((item1)=>{
                 vm.stared.forEach((item2)=>{
@@ -159,8 +157,17 @@ const app =createApp({
           }else{
             this.aqiShowbtn="載入更多"
           }   
+      },
+      //切換card載入更多
+      dataShow(){
+        this.showAll =!this.showAll
+        if(this.dataShowbtn==="載入更多"){
+          this.dataShowbtn="收合"
+        }else{
+          this.dataShowbtn="載入更多"
+        }  
 
-      }
+    }
       
   },
   computed:{
@@ -203,19 +210,23 @@ const app =createApp({
     },
     // data 載入更多
     dataShowlist(){
+        let dataShowlist=[]
         if(this.showAll==false){
-            let dataShowlist=[]
             if(this.showdata.length>10){
                 for(var i=0;i<10;i++){
                     dataShowlist.push(this.showdata[i])
                 }
             }else{
                 dataShowlist=this.showdata
-            }
-            return dataShowlist
-        }
+            }   
+        }else{
+            dataShowlist=this.showdata
 
-    }
+        }
+       return dataShowlist
+    },
+
+
     
 
  
