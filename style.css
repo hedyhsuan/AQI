@@ -32,10 +32,35 @@ body{
 .main{
     display: flex;
 }
+@media (max-width: 992px) { 
+    .main{
+        padding: 0 30px;
+    } 
+}
+@media (max-width: 576px) { 
+    .main{
+        flex-direction: column;
+        padding: 0 100px;
+    } 
+}
+
 .selection{
     width: 20%;
     margin: 104px 0 0 10px;
 }
+@media (max-width: 768px) { 
+    .selection{
+        width: 30%;
+    } 
+}
+@media (max-width: 576px) { 
+    .selection{
+        width: 100%;
+    }
+    
+}
+
+
 .selectArea{
     position: relative;
     margin-top: 20px;
@@ -73,6 +98,11 @@ body{
 .hide{
     display:none;
 }
+@media (max-width: 576px) { 
+    .rated{
+       display: none;
+    } 
+}
 .rated-top{
     padding:20px 0 10px;
     border-bottom:1px solid #ced4da;
@@ -99,6 +129,18 @@ body{
     margin: 0 0 0 20px ;
    
 }
+@media (max-width: 768px) { 
+    .cardwrap{
+         width: 70%; 
+    }   
+}
+@media (max-width: 576px) { 
+    .cardwrap{
+         width: 100%; 
+    } 
+}
+
+
 .btn-group{
     display: flex;
     justify-content: end;
@@ -106,9 +148,9 @@ body{
 }
 .searchBar{
     width: 100%;
-    /* padding: .5rem; */
     height: auto;
     position: relative;
+    display: flex;
 
 }
 .search{
@@ -117,6 +159,9 @@ body{
     color: #495057;
     border: 1px solid #ced4da;
     border-radius: 0.25rem 0 0 0.25rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 60%;
 
 
 }
@@ -158,11 +203,12 @@ body{
     width:22%;
     position: relative;
 }
-@media (max-width: 576px) { 
+@media (max-width: 768px) { 
     .card{
-        width:45%;
+        width:30%;
     }
   }
+
 .card-top{
     padding: 10px;
 
@@ -187,6 +233,9 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;  
+    background-color: #f2f4fb;
+    border-radius: 0.5rem;
+    margin: 0 0 0 10px;
 }
 .text2{
     width: 100%;
@@ -206,16 +255,16 @@ body{
 .air-status{
     width: 100%;
 }
-/* .status-circle{
-    margin: 0 20px;
-    border-radius:50% ;
-    width: 100px;
-    height: 100px;
-    background-color: rgb(215, 213, 186);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+@media (max-width: 992px) { 
+    .air>p{
+        font-size: .75rem;
+    }  
+}
+@media (max-width: 768px) { 
+    .air>p{
+        font-size: 1rem;
+    }  
+}
 .bold{
     font-weight: bold;
 }
