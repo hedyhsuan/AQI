@@ -45,13 +45,14 @@
                     <div class="rated">
                         <div class="rated-top">
                             <p >AQI指數排行 </p>
-                            <button class="sortbtn">高至低<i class="fa-solid fa-arrow-trend-down"></i></button>
+                            <button type="btn" class="sortbtn" @click="rateSorting">{{aqiSort}}<i class="fa-solid fa-arrow-trend-down"></i></button>
                         </div>
                      
                         
                         <div style="padding-top: 10px;">
                             <ul>
-                                <li style="list-style: none; padding-bottom: 10px;" v-for="item in warning">{{item.County}}--{{item.SiteName}}</li>
+                                <li style="list-style: none; padding-bottom: 10px;" v-for="item in aqiSortitem">
+                                    {{item.County}}-{{item.SiteName}}  <span style="font-size: .75rem;">AQI指數:{{item.AQI}}</span></li>
                             </ul>
                         </div>
                     </div>

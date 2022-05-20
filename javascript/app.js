@@ -11,8 +11,9 @@ const app =createApp({
           counties:[],
           //不重覆的城鎮
           county:[],
-          //Status顯示危害的城市
-          warning:[],
+          //AQI btn
+          aqiSort:"高至低",
+          aqiData:[],
           stared:JSON.parse(localStorage.getItem('stared')) ||  [],
           staredArea:false,
           myStared:[],
@@ -49,9 +50,7 @@ const app =createApp({
                 return arr.indexOf(item) === key
                //過濾重複的縣市
             })
-            vm.warning=vm.data.sort(function(a,b){
-                return b.AQI - a.AQI
-            })
+
       
             console.log( vm.data)
             //取出關注資料
@@ -137,6 +136,13 @@ const app =createApp({
           })
           this.showdata=mysearch
           
+      },
+      rateSorting(){
+          if(this.aqiSort==="高至低"){
+              this.aqiSort="低至高"
+          }else{
+            this.aqiSort="高至低"
+          }
       }
       
   },
@@ -150,7 +156,21 @@ const app =createApp({
               return vm.stared.indexOf(item.SiteName)>-1
 
           })
-      }
+      },
+      aqiSortitem(){
+        let vm=this
+        if (vm.aqiSort=="高至低"){
+            return  vm.data.sort(function(a,b){
+                return b.AQI - a.AQI
+            })
+
+        }else{
+            return vm.data.sort(function(a,b){
+                return a.AQI - b.AQI
+            })
+
+        }
+    }
 
  
 
@@ -198,7 +218,8 @@ app.component('card',{
             }else{
                 return "fa-solid fa-bookmark"
             }
-        }
+        },
+
 
     },
     
