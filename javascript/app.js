@@ -6,14 +6,20 @@ const app =createApp({
           data:[],
           //所有城市
           showdata:[],
+          //是否顯示所有資料
+          showAll:false,
           allcites:[],
           //資料中所有的城鎮
           counties:[],
           //不重覆的城鎮
           county:[],
-          //AQI btn
+          //AQI 高低切換btn
           aqiSort:"高至低",
-          aqiData:[],
+          //AQI載入更多判定
+          aqiShowall:false,
+          //AQI載入更多btn
+          aqiShowbtn:"載入更多",
+
           stared:JSON.parse(localStorage.getItem('stared')) ||  [],
           staredArea:false,
           myStared:[],
@@ -137,12 +143,23 @@ const app =createApp({
           this.showdata=mysearch
           
       },
+      //切換aqiBTN字樣
       rateSorting(){
           if(this.aqiSort==="高至低"){
               this.aqiSort="低至高"
           }else{
             this.aqiSort="高至低"
           }
+      },
+      //切換AQI載入更多
+      aqiShow(){
+          this.aqiShowall =!this.aqiShowall
+          if(this.aqiShowbtn==="載入更多"){
+            this.aqiShowbtn="收合"
+          }else{
+            this.aqiShowbtn="載入更多"
+          }   
+
       }
       
   },
@@ -157,6 +174,7 @@ const app =createApp({
 
           })
       },
+    //   AQI資料切換
       aqiSortitem(){
         let vm=this
         if (vm.aqiSort=="高至低"){
@@ -170,7 +188,35 @@ const app =createApp({
             })
 
         }
+    },
+    // AQI 載入更多
+    aqiShowlist(){
+        let aqiShowlist=[]
+        if(this. aqiShowall==false){
+            for(var i=0;i<10;i++){
+                aqiShowlist.push(this.aqiSortitem[i])
+            }
+        }else{
+            aqiShowlist=this.aqiSortitem
+        }
+        return aqiShowlist
+    },
+    // data 載入更多
+    dataShowlist(){
+        if(this.showAll==false){
+            let dataShowlist=[]
+            if(this.showdata.length>10){
+                for(var i=0;i<10;i++){
+                    dataShowlist.push(this.showdata[i])
+                }
+            }else{
+                dataShowlist=this.showdata
+            }
+            return dataShowlist
+        }
+
     }
+    
 
  
 

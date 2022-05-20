@@ -81,11 +81,17 @@ body{
 .rated-top>P{
     width: 120px;
 }
+.aqiShow{
+    margin-top: 20px;
+    color: rgb(56, 73, 199);
+
+}
 .sortbtn{
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 60%;
     
+
 }
 .cardwrap{
     width: 80%;
@@ -131,6 +137,16 @@ body{
     flex-flow: row wrap;
     padding:0 0 20px;
     /* background-color: antiquewhite; */
+    position: relative;
+}.fa-bookmark{
+    /* color: rgb(69, 69, 69); */
+    color: rgb(56, 73, 199);
+}
+.loadmore{
+    position: absolute;
+    right: 70px;
+    bottom: 20px;
+    color: rgb(56, 73, 199);
 }
 .card{
     border: 1px solid rgb(205, 205, 205);

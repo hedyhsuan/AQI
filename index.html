@@ -51,9 +51,13 @@
                         
                         <div style="padding-top: 10px;">
                             <ul>
-                                <li style="list-style: none; padding-bottom: 10px;" v-for="item in aqiSortitem">
+                                <li style="list-style: none; padding-bottom: 10px;" v-for="item in aqiShowlist">
                                     {{item.County}}-{{item.SiteName}}  <span style="font-size: .75rem;">AQI指數:{{item.AQI}}</span></li>
                             </ul>
+                          
+                            <div class="aqiShow" @click.prevent=aqiShow>
+                                <i class="fa-solid fa-arrow-down"></i>
+                                {{aqiShowbtn}}</div>
                         </div>
                     </div>
 
@@ -129,13 +133,14 @@
                 </div>   
                 <div class="cardArea">
                     <card
-                    v-for="(item,key) in showdata"
+                    v-for="(item,key) in dataShowlist"
                     @set-focus=switchCard
                     :selectinfo="item"
                     :star="stared"
                     :key="key"
                     >
                     </card>
+                    <div class="loadmore"><i class="fa-solid fa-arrow-down"></i>載入更多</div>
 
                 </div>
 
@@ -162,11 +167,7 @@
                     {{selectinfo.County}} - <span>{{selectinfo.SiteName}}</span>
                      <a href="#" class="float-right" @click.prevent=setIcon()>
                          <i :class="markIcon"></i>
-                        <!-- <i class="fa-regular fa-bookmark"></i> -->
-                        <!-- <i class="fa-solid fa-bookmark"></i> -->
-        
-                 
-     
+            
                      </a>
                 </div>
                 
