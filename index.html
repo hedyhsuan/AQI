@@ -23,7 +23,9 @@
                     </div> 
                     <div class="selectArea">
                         <div class="selector" @click="this.firstToggle=!this.firstToggle">
-                            {{checkArea}}
+                            <div>{{checkArea}}</div>
+                            <i class="fa-solid fa-caret-down"></i>
+
                         </div>
                         <div class="dropdown" :class="{hide:firstToggle == false}">
                             <ul>
@@ -33,7 +35,9 @@
                     </div>
                     <div class="selectCity">
                         <div class="selector" @click="this.secToggle=!this.secToggle">
-                            {{checkCity}}
+                            <div>{{checkCity}}</div>
+                            
+                            <i class="fa-solid fa-caret-down"></i>
                         </div>
                         <div class="dropdown" :class="{hide:secToggle == false}">
                             <ul>

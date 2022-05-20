@@ -76,10 +76,12 @@ body{
     border-radius: 0.25rem;
     padding:0.5rem; 
     font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
 }
 .dropdown{
     background-color:rgb(240, 240, 240) ;
-    width: 90%;
+    width: 100%;
     padding: 10px; 
     position: absolute;
     top: 40px;
