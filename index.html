@@ -48,7 +48,7 @@
                     </div>
                     <div class="rated">
                         <div class="rated-top">
-                            <p >AQI指數排行 </p>
+                            <p >AQI排行 </p>
                             <button type="btn" class="sortbtn" @click="rateSorting">{{aqiSort}}<i class="fa-solid fa-arrow-trend-down"></i></button>
                         </div>
                      
@@ -56,7 +56,7 @@
                         <div style="padding-top: 10px;">
                             <ul>
                                 <li style="list-style: none; padding-bottom: 10px;" v-for="item in aqiShowlist">
-                                    {{item.County}}-{{item.SiteName}}  <span style="font-size: .75rem;">AQI指數:{{item.AQI}}</span></li>
+                                    {{item.County}}-{{item.SiteName}}  <span style="font-size: .75rem;">AQI:{{item.AQI}}</span></li>
                             </ul>
                           
                             <div class="aqiShow" @click=aqiShow>

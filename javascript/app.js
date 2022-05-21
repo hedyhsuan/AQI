@@ -47,6 +47,7 @@ const app =createApp({
         const api = 'https://script.google.com/macros/s/AKfycbzl6KKgb4v2-F3SCVxVaXjnMwM_XQvnk2A08nw7NjmGfuRVmak0/exec?url=http://opendata2.epa.gov.tw/AQI.json';
         axios.get(api).then((res)=>{
             vm.data=res.data
+            console.log( vm.data)
             vm.showdata=JSON.parse(JSON.stringify(vm.data))
             vm.data.forEach((item)=>{
                 vm.counties.push(item.County)
