@@ -58,7 +58,7 @@ body{
 @media (max-width: 768px) { 
     .selection{
         width: 100%;
-        margin: 104 0 0;
+        margin: 104px 0 0;
     } 
 }
 /* @media (max-width: 576px) { 
@@ -142,6 +142,7 @@ body{
 @media (max-width: 768px) { 
     .cardwrap{
          width: 100%; 
+         margin: 0;
     }   
 }
 /* @media (max-width: 576px) { 
@@ -168,7 +169,7 @@ body{
     padding: .5rem;
     color: #495057;
     border: 1px solid #ced4da;
-    border-radius: 0.25rem 0 0 0.25rem;
+    border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 60%;
@@ -179,7 +180,7 @@ body{
     padding: .5rem;
     border: 1px solid #ced4da;
     border-radius: 0 0.25rem 0.25rem 0 ;
-    height: 36.5px;
+    height: 100%;
     position: absolute;
     top: 0;
     right: 0;
