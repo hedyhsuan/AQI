@@ -58,6 +58,7 @@ body{
 @media (max-width: 768px) { 
     .selection{
         width: 100%;
+        margin: 104 0 0;
     } 
 }
 /* @media (max-width: 576px) { 
