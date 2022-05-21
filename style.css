@@ -9,7 +9,7 @@ body{
     color: rgb(69, 69, 69);
 }
 .wrapper{
-    width: 1024px;
+    max-width: 1024px;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -38,10 +38,16 @@ body{
         padding: 0 30px;
     } 
 }
-@media (max-width: 576px) { 
+@media (max-width: 768px) { 
     .main{
         flex-direction: column;
         padding: 0 100px;
+    } 
+}
+@media (max-width: 576px) { 
+    .main{
+        flex-direction: column;
+        padding: 0 30px;
     } 
 }
 
@@ -51,15 +57,15 @@ body{
 }
 @media (max-width: 768px) { 
     .selection{
-        width: 30%;
+        width: 100%;
     } 
 }
-@media (max-width: 576px) { 
+/* @media (max-width: 576px) { 
     .selection{
         width: 100%;
     }
     
-}
+} */
 
 
 .selectArea{
@@ -101,7 +107,7 @@ body{
 .hide{
     display:none;
 }
-@media (max-width: 576px) { 
+@media (max-width: 768px) { 
     .rated{
        display: none;
     } 
@@ -134,14 +140,14 @@ body{
 }
 @media (max-width: 768px) { 
     .cardwrap{
-         width: 70%; 
+         width: 100%; 
     }   
 }
-@media (max-width: 576px) { 
+/* @media (max-width: 576px) { 
     .cardwrap{
          width: 100%; 
     } 
-}
+} */
 
 
 .btn-group{
@@ -194,7 +200,7 @@ body{
 .loadmore{
     position: absolute;
     right: 70px;
-    bottom: 20px;
+    bottom: 0px;
     cursor: pointer;
     color: rgb(56, 73, 199);
 }
@@ -208,7 +214,17 @@ body{
 }
 @media (max-width: 768px) { 
     .card{
-        width:30%;
+        width:28%;
+    }
+  }
+  @media (max-width: 576px) { 
+    .card{
+        width:43%;
+    }
+  }
+  @media (max-width: 480px) { 
+    .card{
+        width:43%;
     }
   }
 
@@ -263,11 +279,11 @@ body{
         font-size: .75rem;
     }  
 }
-@media (max-width: 768px) { 
+/* @media (max-width: 768px) { 
     .air>p{
         font-size: 1rem;
     }  
-}
+} */
 .bold{
     font-weight: bold;
 }
