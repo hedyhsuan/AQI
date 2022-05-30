@@ -47,9 +47,9 @@ const app =createApp({
         const api = 'https://script.google.com/macros/s/AKfycbzl6KKgb4v2-F3SCVxVaXjnMwM_XQvnk2A08nw7NjmGfuRVmak0/exec?url=http://opendata2.epa.gov.tw/AQI.json';
         axios.get(api).then((res)=>{
             vm.data=res.data
-            console.log( vm.data)
+            // console.log( vm.data)
             vm.showdata=JSON.parse(JSON.stringify(vm.data))
-            vm.data.forEach((item)=>{
+            vm.showdata.forEach((item)=>{
                 vm.counties.push(item.County)
                 //先把所有county都抓出來
             })
@@ -77,8 +77,7 @@ const app =createApp({
           this.firstToggle=false
        const expr = this.checkArea
        switch(expr){
-            case "全區":
-                this.showdata=JSON.parse(JSON.stringify(this.data))
+            case "全區":  
                 this.cities=this.county
             break;
            case "北部":
@@ -97,6 +96,7 @@ const app =createApp({
                 this.cities=this.otherCity
                break;
        }
+       
 
    
 
@@ -144,8 +144,10 @@ const app =createApp({
       },
       //切換aqiBTN字樣
       rateSorting(){
+          console.log(this.showdata)
           if(this.aqiSort==="高至低"){
               this.aqiSort="低至高"
+
           }else{
             this.aqiSort="高至低"
           }
@@ -197,6 +199,34 @@ const app =createApp({
 
         }
     },
+    rateicon(){
+        let vm=this
+        if(vm.aqiSort=="高至低"){
+            return "fa-solid fa-arrow-trend-down"
+        }else{
+            return "fa-solid fa-arrow-trend-up"
+        }
+
+    },
+    dataIcon(){
+        let vm=this
+        if(vm.dataShowbtn=="載入更多"){
+            return "fa-solid fa-arrow-down"
+        }else{
+            return "fa-solid fa-arrow-up"
+        }
+
+    },
+    aqiIcon(){
+        let vm=this
+        if(vm.aqiShowbtn=="載入更多"){
+            return "fa-solid fa-arrow-down"
+        }else{
+            return "fa-solid fa-arrow-up"
+        }
+
+    },
+
     // AQI 載入更多
     aqiShowlist(){
         let aqiShowlist=[]

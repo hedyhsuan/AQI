@@ -5,22 +5,27 @@
 }
 body{
     font-family: Microsoft JhengHei;
-    background-color: rgba(233, 232, 232, 0.303);
     color: rgb(69, 69, 69);
 }
+.bg{
+    
+    /* background-color: rgb(217, 226, 230) ; */
+    /* background-color: rgb(205 222 228); */
+    background-color: rgb(206 208 228);
+}
 .wrapper{
-    max-width: 1024px;
+    max-width: 1140px;
     margin: 0 auto;
     overflow: hidden;
+    position: relative;
 }
 .title{
-    width: 100%;
-    height: 150px;
+    margin-top:50px ;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("/cloud.jpeg");
+    /* background-image: url("./cloud.jpeg"); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
@@ -31,17 +36,23 @@ body{
     font-size: 1.5rem;
 }
 .main{
+    margin: 50px 0;
     display: flex;
+    /* margin: 30px; */
+    background-color: whitesmoke;
+    border-radius: 20px;
 }
 @media (max-width: 992px) { 
     .main{
-        padding: 0 30px;
+        /* padding: 0 30px; */
     } 
 }
-@media (max-width: 768px) { 
+@media (max-width: 767px) { 
     .main{
         flex-direction: column;
-        padding: 0 100px;
+        /* justify-content: center;
+        align-items: center; */
+        margin: 20px;
     } 
 }
 @media (max-width: 576px) { 
@@ -53,12 +64,17 @@ body{
 
 .selection{
     width: 20%;
-    margin: 104px 0 0 10px;
+    padding: 35px 20px 20px;
 }
-@media (max-width: 768px) { 
+@media (max-width: 991px) { 
+    .selection{
+        width: 25%;
+    } 
+}
+@media (max-width: 767px) { 
     .selection{
         width: 100%;
-        margin: 104px 0 0;
+        padding:20px 20px;
     } 
 }
 /* @media (max-width: 576px) { 
@@ -108,7 +124,7 @@ body{
 .hide{
     display:none;
 }
-@media (max-width: 768px) { 
+@media (max-width: 767px) { 
     .rated{
        display: none;
     } 
@@ -136,13 +152,22 @@ body{
 }
 .cardwrap{
     width: 80%;
-    margin: 0 0 0 20px ;
+    border: 4px solid whitesmoke;
+    /* background-color: rgb(217, 226, 230) ; */
+    background-color: rgb(206 208 228);
+    border-start-end-radius: 20px;
+    border-end-end-radius: 20px
    
 }
-@media (max-width: 768px) { 
+@media (max-width: 991px) { 
     .cardwrap{
-         width: 100%; 
-         margin: 0;
+         width: 75%; 
+    }   
+}
+@media (max-width: 767px) { 
+    .cardwrap{
+        width: 100%;
+
     }   
 }
 /* @media (max-width: 576px) { 
@@ -151,7 +176,9 @@ body{
     } 
 } */
 
-
+.time{
+    padding: 20px 0;
+}
 .btn-group{
     display: flex;
     justify-content: end;
@@ -165,14 +192,15 @@ body{
 
 }
 .search{
+    width: 100%;
     font-size: 1rem;
     padding: .5rem;
     color: #495057;
     border: 1px solid #ced4da;
     border-radius: 0.25rem 0.25rem 0.25rem 0.25rem;
-    flex-grow: 1;
+    /* flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 60%;
+    flex-basis: 60%; */
 
 
 }
@@ -192,29 +220,38 @@ body{
     width: 100%;
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
     padding:0 0 20px;
-    /* background-color: antiquewhite; */
     position: relative;
-}.fa-bookmark{
+}
+
+.fa-bookmark{
     /* color: rgb(69, 69, 69); */
     color: rgb(56, 73, 199);
 }
 .loadmore{
-    position: absolute;
-    right: 70px;
-    bottom: 0px;
+    /* position: absolute; */
+    /* right: 70px;
+    bottom: 0px; */
+    text-align: end;
+    margin:20px ;
     cursor: pointer;
     color: rgb(56, 73, 199);
+    z-index: 100;
 }
 .card{
-    border: 1px solid rgb(205, 205, 205);
+    /* border: 1px solid rgb(205, 205, 205); */
     background-color: white;
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.3);
-    margin: 10px;
+    margin:20px 10px;
+    padding: 25px 15px 0;
     width:22%;
     position: relative;
+    border-radius: 10px;
+    
 }
-@media (max-width: 768px) { 
+
+@media (max-width: 991px) { 
     .card{
         width:28%;
     }
@@ -229,12 +266,22 @@ body{
         width:43%;
     }
   }
-
-.card-top{
+  .card_county{
+      width: 80%;
+      height: 40px;
+      position: absolute;
+      background-color: rgb(172, 137, 137);
+      top: -8%;
+      right: 10%;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+/* .card-top{
     padding: 10px;
 
-
-}
+} */
 .area{
     font-size: 1.25rem;
 }
@@ -245,8 +292,8 @@ body{
     float: right;
 }
 .card-body{
-    display: flex;
-    margin: 20px 0;
+    /* display: flex; */
+    /* margin: 20px 0; */
     text-align: center;
 }
 .text{
@@ -256,12 +303,13 @@ body{
     justify-content: space-between;  
     background-color: #f2f4fb;
     border-radius: 0.5rem;
-    margin: 0 0 0 10px;
+    padding: 10px 0 ;
 }
 .text2{
     width: 100%;
-    padding: 0 10px;
-    /* margin: auto; */
+    padding:10px 0;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .status-circle{
     margin: 0 auto 10px;
@@ -294,7 +342,7 @@ body{
 }
 
 .aqi1{
-    background-color: #bfe4cb;
+    background-color: #def3e5;
   }
   .aqi2 {
     background-color: #eeeebb;
@@ -328,3 +376,29 @@ body{
   .button-38:hover {
     background-color: rgb(249, 250, 251);
   }
+  .cloud1>img{
+     width: 200px;
+     height: 200px;
+     position: absolute;
+     top: 50px;
+     left: 100px;
+     z-index: auto;
+     
+  }
+  .cloud2>img{
+ 
+      width: 400px;
+      height: 200px;
+      position: absolute;
+      top: 600px;
+      right: -150px;
+      z-index: auto;
+  }
+  .cloud3>img{
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    right: 80px;
+    z-index: auto;
+}
